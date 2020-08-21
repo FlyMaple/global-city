@@ -13,24 +13,58 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { zh_TW } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import { SidnavModule } from 'src/lib/sidnav/sidnav.module';
 
 registerLocaleData(zh);
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SidnavModule.forRoot([
+      {
+        title: '社區大廳',
+        path: '',
+        icon: 'mail',
+      },
+      {
+        title: '社區大小事',
+        path: 'everyhing',
+        icon: 'mail',
+      },
+      {
+        title: '社區周邊',
+        path: 'around',
+        icon: 'mail',
+      },
+      {
+        title: '社區買賣&租賃',
+        icon: 'mail',
+        children: [
+          {
+            title: '房子',
+            path: 'house',
+          },
+          {
+            title: '車位',
+            path: 'parking',
+          },
+          {
+            title: '跳蚤',
+            path: 'market',
+          },
+        ],
+      },
+    ]),
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_TW }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
