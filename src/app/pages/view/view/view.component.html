@@ -1,0 +1,13 @@
+<div class="page page-view">
+  <div class="grid">
+    <div
+      class="grid-item"
+      *ngFor="let item of items; let i = index"
+      [lightbox]="i"
+      [gallery]="galleryId"
+    >
+      <img [src]="item.data.thumb" />
+    </div>
+  </div>
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="500"></nz-pagination>
+</div>

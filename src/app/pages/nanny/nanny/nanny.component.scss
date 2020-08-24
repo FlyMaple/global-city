@@ -1,0 +1,61 @@
+.page-nanny {
+  ::ng-deep {
+    nz-card {
+      .ant-card-body {
+        display: flex;
+        flex-flow: column wrap;
+
+        .main {
+          height: 200px;
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+          align-items: center;
+
+          > img {
+            border-radius: 50%;
+            margin: 10px;
+            width: 72px;
+            height: 72px;
+          }
+
+          .name {
+            font-weight: 600;
+            font-size: 24px;
+            margin-bottom: 12px;
+          }
+
+          .desc {
+          }
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+            li {
+                line-height: 44px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: auto;
+                background-color: rgb(55 151 255 / 68%);
+
+                span {
+                    display: block;
+                }
+            }
+        }
+
+        .actions {
+            margin: 15px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

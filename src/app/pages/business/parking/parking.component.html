@@ -1,0 +1,56 @@
+<div class="page page-parking">
+  <nz-card>
+    <div class="preview"></div>
+    <div class="content">
+      <div class="description">
+        <div class="title">出租</div>
+        <div class="info">
+          <div>
+            屋主 X先生 / 位置 B1 838 / 一般車位 / 更新日期: 2020-08-24 13:18
+          </div>
+        </div>
+      </div>
+      <div class="price">
+        <span>3,000</span>
+        <span>元/月</span>
+      </div>
+    </div>
+  </nz-card>
+
+  <!-- <nz-carousel nzAutoPlay>
+      <div nz-carousel-content *ngFor="let index of array">
+        <h3>{{ index }}</h3>
+      </div>
+    </nz-carousel> -->
+
+  <nz-descriptions
+    nzTitle="Responsive Descriptions"
+    nzBordered
+    [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }"
+  >
+    <nz-descriptions-item nzTitle="Product">
+      Cloud Database
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Billing">Prepaid</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="time">18:00:00</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Amount">$80.00</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Discount">$20.00</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Official">$60.00</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Config Info">
+      Data disk type: MongoDB
+      <br />
+      Database version: 3.4
+      <br />
+      Package: dds.mongo.mid
+      <br />
+      Storage space: 10 GB
+      <br />
+      Replication_factor:3
+      <br />
+      Region: East China 1
+      <br />
+    </nz-descriptions-item>
+  </nz-descriptions>
+
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="500"></nz-pagination>
+</div>

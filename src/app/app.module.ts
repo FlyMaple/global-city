@@ -25,13 +25,27 @@ registerLocaleData(zh);
     SidnavModule.forRoot([
       {
         title: '社區大廳',
-        path: '',
+        path: 'lobby',
         icon: 'mail',
       },
       {
         title: '社區大小事',
-        path: 'everyhing',
+        path: 'everything',
         icon: 'mail',
+        children: [
+          {
+            title: '全部',
+            path: 'all',
+          },
+          {
+            title: '其他',
+            path: 'other',
+          },
+          {
+            title: '一般',
+            path: 'normal',
+          },
+        ],
       },
       {
         title: '社區周邊',
@@ -40,6 +54,7 @@ registerLocaleData(zh);
       },
       {
         title: '社區買賣&租賃',
+        path: 'business',
         icon: 'mail',
         children: [
           {
@@ -55,6 +70,51 @@ registerLocaleData(zh);
             path: 'market',
           },
         ],
+      },
+      {
+        title: '社區媽媽',
+        path: 'mother',
+        icon: 'mail',
+      },
+      {
+        title: '社區保母',
+        path: 'nanny',
+        icon: 'mail',
+      },
+      {
+        title: '社區廠商',
+        path: 'store',
+        icon: 'mail',
+      },
+      {
+        title: '社區光廊',
+        path: 'view',
+        icon: 'mail',
+      },
+      {
+        title: '社區 Line 群',
+        path: 'line',
+        icon: 'mail',
+      },
+      {
+        title: '社區吹水',
+        path: 'chat',
+        icon: 'mail',
+      },
+      {
+        title: '社區未知',
+        path: 'unknown',
+        icon: 'mail',
+      },
+      {
+        title: '社區住戶',
+        path: 'neighbor',
+        icon: 'mail',
+      },
+      {
+        title: '聯絡我們',
+        path: 'contact-us',
+        icon: 'mail',
       },
     ]),
     IconsProviderModule,

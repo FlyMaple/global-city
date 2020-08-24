@@ -1,0 +1,39 @@
+<div class="page page-store">
+  <div class="gutter-example">
+    <div nz-row [nzGutter]="[16, 16]">
+      <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let i of array">
+        <div class="grid-config">
+          <nz-card>
+            <div class="image"></div>
+            <div class="description">
+              <i>@</i>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              atque ipsa non illum, nostrum sequi ex odit unde praesentium sunt
+              magnam explicabo minima adipisci dicta temporibus possimus libero
+              minus ipsum!
+            </div>
+            <div class="contact">
+              <div class="phone">
+                <i nz-icon nzType="pie-chart" nzTheme="outline"></i>0977777777
+              </div>
+              <div class="time">
+                <i nz-icon nzType="pie-chart" nzTheme="outline"></i>08:00 ~
+                16:00
+              </div>
+              <div class="society">
+                <i nz-icon nzType="github" nzTheme="outline"></i>
+                <i nz-icon nzType="taobao-circle" nzTheme="outline"></i>
+                <i nz-icon nzType="chrome" nzTheme="outline"></i>
+              </div>
+            </div>
+            <div class="note">
+              ps. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </div>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="500"></nz-pagination>
+</div>

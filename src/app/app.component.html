@@ -21,10 +21,11 @@
     >
       <ng-container *ngFor="let menu of menuConfig">
         <ng-container *ngIf="menu.children">
-          <li nz-submenu  nzMode="inline" nzOpen [nzTitle]="menu.title" [nzIcon]="menu.icon">
+          <li nz-submenu nzOpen [nzTitle]="menu.title" [nzIcon]="menu.icon">
             <ul>
               <li nz-menu-item nzMatchRouter *ngFor="let item of menu.children">
-                <a [routerLink]="['/', item.path]">{{ item.title }}</a>
+                <a *ngIf="item.path" [routerLink]="['/', menu.path, item.path]">{{ item.title }}</a>
+                <a *ngIf="!item.path" [routerLink]="['/', menu.path]">{{ item.title }}</a>
               </li>
             </ul>
           </li>
@@ -38,27 +39,6 @@
           </li>
         </ng-container>
       </ng-container>
-
-      <!-- <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-menu-item nzMatchRouter nzTitle="Form" nzIcon="form">
-        <a routerLink="/welcome">Welcome</a>
-      </li>
-      <li nz-menu-item nzMatchRouter nzTitle="Asd" nzIcon="form">
-        <a routerLink="/asd">asd</a>
-      </li> -->
     </ul>
   </nz-sider>
   <nz-layout>

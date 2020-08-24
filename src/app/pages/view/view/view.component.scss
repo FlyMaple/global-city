@@ -1,0 +1,15 @@
+.page-view {
+  ::ng-deep {
+    .g-overlay {
+      min-width: 320px;
+    }
+
+    gallery {
+      font-size: 16px;
+    }
+
+    img {
+      width: 150px;
+    }
+  }
+}

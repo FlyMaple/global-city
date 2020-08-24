@@ -1,0 +1,33 @@
+.page-line {
+  ::ng-deep {
+    nz-card {
+      .ant-card-body {
+        display: flex;
+        flex-flow: column wrap;
+
+        .main {
+        //   height: 200px;
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+          align-items: center;
+
+          > img {
+            margin: 10px;
+            width: 150px;
+            height: 150px;
+          }
+
+          .name {
+            font-weight: 600;
+            font-size: 24px;
+            margin-bottom: 12px;
+          }
+
+          .desc {
+          }
+        }
+      }
+    }
+  }
+}

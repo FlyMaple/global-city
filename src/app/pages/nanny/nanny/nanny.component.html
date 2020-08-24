@@ -1,0 +1,36 @@
+<div class="page page-nanny">
+  <div class="gutter-example">
+    <div nz-row [nzGutter]="[16, 16]">
+      <div nz-col class="gutter-row" [nzSpan]="8" *ngFor="let i of array">
+        <div class="grid-config">
+          <nz-card>
+            <div class="main">
+              <img src="https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png" alt="" />
+              <div class="name">H.Y Lin</div>
+              <div class="desc">Happy dog</div>
+            </div>
+            <ul class="info">
+              <li>
+                <span>4</span>
+                <span>Count.</span>
+              </li>
+              <li>
+                <span>4</span>
+                <span>Count.</span>
+              </li>
+              <li>
+                <span>4</span>
+                <span>Count.</span>
+              </li>
+            </ul>
+            <div class="actions">
+              <button nz-button nzType="primary">Primary</button>
+            </div>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="500"></nz-pagination>
+</div>

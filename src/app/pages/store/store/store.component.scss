@@ -1,0 +1,29 @@
+.page-store {
+    ::ng-deep {
+        nz-card {
+            .ant-card-body {
+                display: flex;
+                flex-flow: column wrap;
+
+                .image {
+                    height: 120px;
+                }
+
+                .description {
+                    > i {
+                        font-size: 24px;
+                    }
+
+                }
+
+                .contact {
+                    line-height: 24px;
+                }
+
+                .note {
+
+                }
+            }
+        }
+    }
+}

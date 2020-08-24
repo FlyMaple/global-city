@@ -1,0 +1,61 @@
+<div class="page page-everything">
+  <div class="filter" *ngIf="categoryPath === 'all'">
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>其他
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>一般
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>會議
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>財務
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>維修保養
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>活動
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>規約
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>系統
+    </button>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="search"></i>管理辦法
+    </button>
+  </div>
+  <div class="search">
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+      <input type="text" nz-input placeholder="input search text" />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch>
+        <i nz-icon nzType="search"></i>
+      </button>
+    </ng-template>
+  </div>
+  <cdk-virtual-scroll-viewport itemSize="73" class="demo-infinite-container">
+    <nz-list>
+      <nz-list-item *cdkVirtualFor="let item of ds">
+        <nz-skeleton
+          *ngIf="!item"
+          [nzAvatar]="true"
+          [nzParagraph]="{ rows: 1 }"
+        ></nz-skeleton>
+        <nz-list-item-meta *ngIf="item">
+          <nz-list-item-meta-title>
+            防疫工作，你我有責
+          </nz-list-item-meta-title>
+          <nz-list-item-meta-description>
+            <span>2020-03-17</span>
+            <span>其他</span>
+          </nz-list-item-meta-description>
+        </nz-list-item-meta>
+      </nz-list-item>
+    </nz-list>
+  </cdk-virtual-scroll-viewport>
+</div>
