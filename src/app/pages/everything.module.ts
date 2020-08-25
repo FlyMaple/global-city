@@ -5,14 +5,12 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { EverythingComponent } from './everything/everything/everything.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DemoNgZorroAntdModule } from '../ng-zorro-antd.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouteModule } from 'src/lib/route';
 
 const routes: Routes = [
   {
-    path: 'all',
-    component: EverythingComponent,
-  },
-  {
-    path: 'other',
+    path: '**',
     component: EverythingComponent,
   },
 ];
@@ -21,6 +19,8 @@ const routes: Routes = [
   declarations: [EverythingComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     DemoNgZorroAntdModule,
     ScrollingModule,

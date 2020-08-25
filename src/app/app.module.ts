@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -14,6 +16,8 @@ import { zh_TW } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { SidnavModule } from 'src/lib/sidnav/sidnav.module';
+import { RouteModule } from 'src/lib/route';
+import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 
 registerLocaleData(zh);
 
@@ -32,20 +36,6 @@ registerLocaleData(zh);
         title: '社區大小事',
         path: 'everything',
         icon: 'mail',
-        children: [
-          {
-            title: '全部',
-            path: 'all',
-          },
-          {
-            title: '其他',
-            path: 'other',
-          },
-          {
-            title: '一般',
-            path: 'normal',
-          },
-        ],
       },
       {
         title: '社區周邊',
@@ -121,8 +111,12 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzMenuModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DemoNgZorroAntdModule,
+    ScrollingModule,
+    DragDropModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_TW }],
   bootstrap: [AppComponent],

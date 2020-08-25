@@ -1,87 +1,128 @@
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  NavigationEnd,
+  NavigationStart,
+} from '@angular/router';
+import { RouteService } from 'src/lib/route';
+
+function toArray(_enum: any): { label: string; value: any }[] {
+  const arr: { label: string; value: any }[] = [];
+  Object.entries<string>(_enum).forEach(([value, label]) => {
+    arr.push({ label, value });
+  });
+
+  return arr;
+}
+
+enum CategoryText {
+  other = '其他',
+  general = '一般',
+  meeting = '會議',
+  finance = '財務',
+  maintenance = '維修保養',
+  activity = '活動',
+  statute = '規約',
+  system = '系統',
+  mgmt_method = '管理辦法',
+}
 
 interface ItemData {
-  gender: string;
-  name: Name;
-  email: string;
-}
-
-interface Name {
+  id: number;
   title: string;
-  first: string;
-  last: string;
-}
-
-
-
-class MyDataSource extends DataSource<ItemData> {
-  private length = 100000;
-  private pageSize = 10;
-  private cachedData = Array.from<ItemData>({ length: this.length });
-  private fetchedPages = new Set<number>();
-  private dataStream = new BehaviorSubject<ItemData[]>(this.cachedData);
-  private subscription = new Subscription();
-
-  constructor(private http: HttpClient) {
-    super();
-  }
-
-  connect(collectionViewer: CollectionViewer): Observable<ItemData[]> {
-    this.subscription.add(
-      collectionViewer.viewChange.subscribe(range => {
-        const startPage = this.getPageForIndex(range.start);
-        const endPage = this.getPageForIndex(range.end - 1);
-        for (let i = startPage; i <= endPage; i++) {
-          this.fetchPage(i);
-        }
-      })
-    );
-    return this.dataStream;
-  }
-
-  disconnect(): void {
-    this.subscription.unsubscribe();
-  }
-
-  private getPageForIndex(index: number): number {
-    return Math.floor(index / this.pageSize);
-  }
-
-  private fetchPage(page: number): void {
-    if (this.fetchedPages.has(page)) {
-      return;
-    }
-    this.fetchedPages.add(page);
-
-    this.http
-      .get<{ results: ItemData[] }>(`https://randomuser.me/api/?results=${this.pageSize}&inc=name,gender,email,nat&noinfo`)
-      .subscribe(res => {
-        this.cachedData.splice(page * this.pageSize, this.pageSize, ...res.results);
-        this.dataStream.next(this.cachedData);
-      });
-  }
+  date: number;
+  category: string;
+  images: string[];
+  attach_files: string[];
 }
 
 @Component({
   selector: 'app-everything',
   templateUrl: './everything.component.html',
-  styleUrls: ['./everything.component.scss']
+  styleUrls: ['./everything.component.scss'],
 })
-export class EverythingComponent implements OnInit {
-  ds = new MyDataSource(this.http);
+export class EverythingComponent implements OnInit, OnDestroy {
+  // ds = new MyDataSource(this.http);
+  list: any[] = [];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  listOfTagOptions = [];
+
+  listOfOption = toArray(CategoryText);
+
+  inputTerm: string;
+
+  loading = false;
+
+  subscriptions: Subscription[] = [];
+
+  readonly CATEGORY_TEXT = CategoryText;
+
+  constructor(
+    private http: HttpClient,
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private routeService: RouteService
+  ) {}
 
   get categoryPath() {
-    return this.route.snapshot.url[0].path;
+    return this.activeRoute.snapshot.url[0].path;
+  }
+
+  get filterList() {
+    if (!this.list) {
+      return [];
+    }
+
+    let result = [];
+    if (this.listOfTagOptions.length !== 0) {
+      result = this.list.filter((item) =>
+        this.listOfTagOptions.includes(item.category)
+      );
+    } else if (this.categoryPath === 'all') {
+      result = this.list;
+    } else {
+      result = this.list.filter((item) => this.categoryPath === item.category);
+    }
+
+    if (this.inputTerm) {
+      return result.filter((item) => item.title.includes(this.inputTerm));
+    }
+
+    return result;
+  }
+
+  private async initialize(): Promise<void> {
+    console.warn('initialize.');
+    this.loading = true;
+    const response = await this.http
+      .get<{ body: any[] }>('http://localhost:4444/everything')
+      .toPromise();
+
+    this.list = response.body;
+    this.loading = false;
   }
 
   ngOnInit(): void {
-    
+    this.subscriptions.push(
+      this.route.events.subscribe(async (event) => {
+        if (event instanceof NavigationStart) {
+        } else if (event instanceof NavigationEnd) {
+          await this.initialize();
+        }
+      })
+    );
+
+    this.initialize();
   }
 
+  searchInput(event: any): void {}
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+    this.subscriptions = [];
+  }
 }

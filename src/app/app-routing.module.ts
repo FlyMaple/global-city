@@ -40,13 +40,15 @@ const routes: Routes = [
   },
   {
     path: 'view',
-    loadChildren: () =>
-      import('./pages/view.module').then((m) => m.ViewModule),
+    loadChildren: () => import('./pages/view.module').then((m) => m.ViewModule),
   },
   {
     path: 'line',
-    loadChildren: () =>
-      import('./pages/line.module').then((m) => m.LineModule),
+    loadChildren: () => import('./pages/line.module').then((m) => m.LineModule),
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./pages/chat.module').then((m) => m.ChatModule),
   },
   {
     path: 'unknown',
@@ -66,7 +68,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
