@@ -9,9 +9,27 @@
     padding: 24px;
   }
 
+  nz-list-item {
+    flex-flow: row wrap;
+  }
+
   
   nz-select {
     width: 100%;
     margin-bottom: 1rem;
+  }
+
+  .meta {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .detail {
+    height: 0;
+    overflow: hidden;
+
+    &.show {
+      height: auto;
+    }
   }
 }
