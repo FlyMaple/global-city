@@ -14,43 +14,55 @@
       overflow: hidden;
     }
 
-    nz-card .ant-card-body {
-      display: flex;
+    nz-card {
+      cursor: pointer;
 
-      .preview {
-        flex: 0 0 180px;
-      }
-
-      .content {
-        flex: auto;
+      .ant-card-body {
         display: flex;
 
-        .description {
-          flex: auto;
+        .preview {
+          flex: 0 0 180px;
+          margin-right: 1rem;
 
-          .title {
-            font-weight: 600;
-            font-size: 24px;
-          }
-
-          .info {
-            line-height: 24px;
+          > img {
+            width: 180px;
+            height: 130px;
           }
         }
 
-        .price {
-          flex: 0 0 100px;
+        .content {
+          flex: auto;
           display: flex;
-          align-items: center;
 
-          span:first-child {
-            font-size: 24px;
-            font-weight: 600;
+          .description {
+            flex: auto;
+
+            .title {
+              font-weight: 600;
+              font-size: 24px;
+            }
+
+            .info {
+              > div {
+                line-height: 32px;
+              }
+            }
           }
 
-          span:last-child {
-            margin-left: 4px;
-            font-size: 12px;
+          .price {
+            flex: 0 0 100px;
+            display: flex;
+            align-items: center;
+
+            span:first-child {
+              font-size: 24px;
+              font-weight: 600;
+            }
+
+            span:last-child {
+              margin-left: 4px;
+              font-size: 12px;
+            }
           }
         }
       }

@@ -30,7 +30,10 @@
   </div>
 
   <nz-list nzItemLayout="horizontal" [nzLoading]="loading">
-    <nz-list-item *ngFor="let item of filterList" (click)="item.show = !item.show">
+    <nz-list-item
+      *ngFor="let item of filterList"
+      (click)="item.show = !item.show"
+    >
       <div class="meta">
         <nz-list-item-meta>
           <nz-list-item-meta-title>
@@ -42,11 +45,23 @@
           </nz-list-item-meta-description>
         </nz-list-item-meta>
       </div>
-      <div class="detail" [ngClass]="{show: item.show}">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores
-        tempora in quas quasi dolore impedit obcaecati pariatur perferendis
-        corporis sunt sapiente, necessitatibus illo delectus, sint repellat, ad
-        rem minus.
+      <div class="detail" [ngClass]="{ show: item.show }">
+        <div class="image" *ngFor="let image of item.images">
+          <img [src]="image" />
+        </div>
+        <div class="attach-files">
+          <a
+            nz-button
+            nzType="primary"
+            *ngFor="let file of item.attach_files; let index = index"
+            rel="noopener"
+            target="_blank"
+            [href]="file"
+          >
+            <i nz-icon nzType="search"></i>
+            附件 {{ index + 1 }}
+          </a>
+        </div>
       </div>
     </nz-list-item>
     <nz-list-empty *ngIf="filterList.length === 0"></nz-list-empty>

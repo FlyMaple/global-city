@@ -1,3 +1,187 @@
 <div class="page page-house">
-    Same as Car
+  <div class="house-list" *ngFor="let house of list$ | async">
+    <nz-card (click)="house.show = !house.show">
+      <div class="preview">
+        <img [src]="house.photos[0]" />
+      </div>
+      <div class="content">
+        <div class="description">
+          <div class="title">{{ house.title }}</div>
+          <div class="info">
+            <div>
+              <span class="label">格局:</span>
+              <span class="text">{{ house.pattern }}</span>
+            </div>
+            <div>
+              <span class="label">坪數:</span>
+              <span class="text">{{ house.ground }}坪</span>
+            </div>
+            <div>
+              <span class="label">樓層:</span>
+              <span class="text">{{ house.floor }}</span>
+            </div>
+            <div>
+              <span class="label">車位:</span>
+              <span class="text">{{ house.parking ? "有" : "無" }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="price">
+          <span>{{ house.price }}</span>
+          <span>元/月</span>
+        </div>
+      </div>
+    </nz-card>
+
+    <nz-descriptions
+      [hidden]="!house.show"
+      nzBordered
+      [nzColumn]="{ xxl: 4, xl: 4, lg: 2, md: 2, sm: 2, xs: 1 }"
+    >
+      <nz-descriptions-item nzTitle="刊登日期">{{
+        house.publish_date | date: "yyyy-MM-dd HH:mm:ss"
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="更新日期">{{
+        house.update_date | date: "yyyy-MM-dd HH:mm:ss"
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="押金">{{
+        house.deposit.count
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="最短租期">{{
+        house.min_rental_period
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="管理費">{{
+        house.mgmt_fee
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="車位">{{
+        house.parking
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="可開伙">{{
+        house.cooking
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="可養寵物">{{
+        house.pets
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="可遷入日">{{
+        house.move_in_date | date: "yyyy-MM-dd"
+      }}</nz-descriptions-item>
+
+      <nz-descriptions-item nzTitle="狀態">
+        {{
+          house.state.action === "contract"
+            ? "承租中"
+            : house.state.begin && house.state.end
+            ? house.state.begin + "~" + house.state.end
+            : "其他"
+        }}
+      </nz-descriptions-item>
+      <nz-descriptions-item nzTitle="租約">
+        {{
+          house.lease.action === "short"
+            ? "短期"
+            : house.lease.action === "long"
+            ? "長期"
+            : "其他"
+        }}
+      </nz-descriptions-item>
+      <nz-descriptions-item nzTitle="付款方式">
+        {{
+          house.payment.action === "month"
+            ? "月繳"
+            : house.payment.action === "season"
+            ? "季繳"
+            : house.payment.action === "year"
+            ? "年繳"
+            : "其他"
+        }}</nz-descriptions-item
+      >
+      <nz-descriptions-item nzTitle="提供" [nzSpan]="4">
+        <ul class="provider" nz-row [nzGutter]="16">
+          <li
+            *ngFor="let provide of house.provides"
+            nz-col
+            class="gutter-row"
+            [nzSpan]="6"
+          >
+            <i nz-icon nzType="bug" nzTheme="outline"></i>
+            {{ PROVIDE[provide] }}
+          </li>
+        </ul>
+      </nz-descriptions-item>
+
+      <nz-descriptions-item nzTitle="聯絡方式" [nzSpan]="4">
+        <div>
+          <div class="label">屋主:</div>
+          <div class="text">{{ house.contact.name }}</div>
+        </div>
+        <div>
+          <div class="label">電話:</div>
+          <div class="text">{{ house.contact.phone }}</div>
+        </div>
+        <div>
+          <div class="label">棟別:</div>
+          <div class="text">{{ house.contact.dongbet }}</div>
+        </div>
+        <div>
+          <div class="label">戶號:</div>
+          <div class="text">{{ house.contact.account }}</div>
+        </div>
+        <div>
+          <div class="label">Line ID:</div>
+          <div class="text">{{ house.contact.line_id }}</div>
+        </div>
+        <div>
+          <div class="label">備註:</div>
+          <div class="text">{{ house.contact.note }}</div>
+        </div>
+      </nz-descriptions-item>
+      <nz-descriptions-item nzTitle="屋況說明" [nzSpan]="4"
+        >{{ house.description }}
+      </nz-descriptions-item>
+      <!-- <nz-descriptions-item nzTitle="位置">{{
+        house.position
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="價錢">{{
+        house.price
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="刊登日期">{{
+        house.publish_date | date: "yyyy-MM-dd HH:mm:ss"
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="更新日期">{{
+        house.update_date | date: "yyyy-MM-dd HH:mm:ss"
+      }}</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="聯絡方式" [nzSpan]="4">
+        <div>
+          <div class="label">屋主:</div>
+          <div class="text">{{ house.contact.name }}</div>
+        </div>
+        <div>
+          <div class="label">電話:</div>
+          <div class="text">{{ house.contact.phone }}</div>
+        </div>
+        <div>
+          <div class="label">棟別:</div>
+          <div class="text">{{ house.contact.dongbet }}</div>
+        </div>
+        <div>
+          <div class="label">戶號:</div>
+          <div class="text">{{ house.contact.account }}</div>
+        </div>
+        <div>
+          <div class="label">Line ID:</div>
+          <div class="text">{{ house.contact.line_id }}</div>
+        </div>
+        <div>
+          <div class="label">備註:</div>
+          <div class="text">{{ house.contact.note }}</div>
+        </div>
+      </nz-descriptions-item>
+      <nz-descriptions-item nzTitle=""></nz-descriptions-item>
+      <nz-descriptions-item nzTitle="描述">{{
+        house.description
+      }}</nz-descriptions-item> -->
+    </nz-descriptions>
+  </div>
+
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="500"></nz-pagination>
 </div>

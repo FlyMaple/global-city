@@ -1,0 +1,72 @@
+.page-house {
+    h3 {
+      color: #fff;
+      margin-bottom: 0;
+    }
+  
+    ::ng-deep {
+      [nz-carousel-content] {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        color: #fff;
+        overflow: hidden;
+      }
+  
+      nz-card {
+        cursor: pointer;
+  
+        .ant-card-body {
+          display: flex;
+  
+          .preview {
+            flex: 0 0 180px;
+            margin-right: 1rem;
+  
+            > img {
+              width: 180px;
+              height: 130px;
+            }
+          }
+  
+          .content {
+            flex: auto;
+            display: flex;
+  
+            .description {
+              flex: auto;
+  
+              .title {
+                font-weight: 600;
+                font-size: 24px;
+              }
+  
+              .info {
+                > div {
+                  line-height: 32px;
+                }
+              }
+            }
+  
+            .price {
+              flex: 0 0 100px;
+              display: flex;
+              align-items: center;
+  
+              span:first-child {
+                font-size: 24px;
+                font-weight: 600;
+              }
+  
+              span:last-child {
+                margin-left: 4px;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

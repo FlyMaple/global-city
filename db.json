@@ -170,5 +170,401 @@
     ],
     "message": "",
     "status": 200
+  },
+  "parking": {
+    "body": [
+      {
+        "id": 1,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "contract",
+          "begin": 3,
+          "end": 6
+        },
+        "lease": {
+          "action": "short",
+          "note": ""
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 2,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "other"
+        },
+        "lease": {
+          "action": "short",
+          "note": ""
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 3,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "contract"
+        },
+        "lease": {
+          "action": "short",
+          "note": ""
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 4,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "other",
+          "note": "lorem lorem lorem"
+        },
+        "lease": {
+          "action": "short",
+          "note": ""
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 5,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "long",
+          "note": ""
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 6,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "short",
+          "note": ""
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 7,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "other",
+          "note": "lorem lorem lorem"
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 8,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "other",
+          "note": "lorem lorem lorem"
+        },
+        "payment": {
+          "action": "month"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 9,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "other",
+          "note": "lorem lorem lorem"
+        },
+        "payment": {
+          "action": "season"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 10,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "other",
+          "note": "lorem lorem lorem"
+        },
+        "payment": {
+          "action": "year"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      },
+      {
+        "id": 11,
+        "position": "B1 838",
+        "price": 2000,
+        "publish_date": 1598411065458,
+        "update_date": 1598411065458,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "other",
+          "note": "lorem lorem lorem"
+        },
+        "payment": {
+          "action": "other",
+          "note": "lorem lorem lorem lorem"
+        },
+        "description": "lorem lorem lorem",
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ]
+      }
+    ],
+    "message": "",
+    "status": 200
+  },
+  "house": {
+    "body": [
+      {
+        "id": 1,
+        "title": "出租",
+        "pattern": "3+1/2/2/1",
+        "price": 20000,
+        "ground": 47,
+        "floor": "8F/15F",
+        "publish_date": 1598432878495,
+        "update_date": 1598432878495,
+        "description": "中午前不會接電話，請「下午兩點 到 晚上十點 之間」再聯絡，謝謝。\n\n約看現場->>請事先打電話約時間\n\n仲介我一定不會理你，不用打來 :D。\n\n屋主自租，「免仲介費」、零公設「免繳管理費」。\n\n公寓一樓，不需爬樓梯，真D爽。\n\n機能性超強，三餐、宵夜、買飲料都方便，CP值超高，夜晚安靜。\n\n門口可停機車，機車族首選最愛。\n\n每間房間皆有附：床、桌椅、冷氣+電錶，適合大學生、上班族合租。\n\n客廳及廚房附基礎家具、沙發，可自住，也可做辦公室。\n\n半年繳 5%折扣優惠 = 19000/月，年繳 10%折扣優惠 = 18000/月。\n\n步行：\n\n距國賓大飯店1分鐘，萊爾富便利商店1分鐘，好樂迪KTV1分鐘，新竹女中1分鐘，診所&藥局1分鐘，芙洛麗大飯店2分鐘，巨城購物中心&威秀電影院5分鐘。\n\n騎車：\n\n距巨城2分鐘、民生傳統市場3分鐘。",
+        "mgmt_fee": true,
+        "deposit": {
+          "action": "standard",
+          "count": 1
+        },
+        "min_rental_period": 12,
+        "cooking": true,
+        "pets": true,
+        "parking": true,
+        "move_in_date": 1598432878495,
+        "contact": {
+          "phone": "0912345678",
+          "name": "XXX",
+          "dongbet": "子棟",
+          "account": "2Q7",
+          "line_id": "fm",
+          "note": "lorem lorem lorem lorem"
+        },
+        "state": {
+          "action": "none"
+        },
+        "lease": {
+          "action": "other",
+          "note": "lorem lorem lorem"
+        },
+        "payment": {
+          "action": "other",
+          "note": "lorem lorem lorem lorem"
+        },
+        "photos": [
+          "https://novelcoronavirus.nptu.edu.tw/ezfiles/189/1189/pictures/313/part_105390_3018302_86038.jpg"
+        ],
+        "provides": [
+          "electronic_locks",
+          "system_furniture",
+          "dining_table",
+          "coffee_table",
+          "sofa",
+          "tv",
+          "dishwasher",
+          "refrigerator",
+          "washing_machine",
+          "heater",
+          "water_heater",
+          "bed",
+          "curtain",
+          "parking_space",
+          "network",
+          "the_fourth_station"
+        ]
+      }
+    ],
+    "message": "",
+    "status": 200
   }
 }
