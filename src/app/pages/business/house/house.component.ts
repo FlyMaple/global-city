@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { HttpMethods, ApiService } from 'src/lib/api';
+import { ActivatedRoute, Router } from '@angular/router';
 
 module GetHouse {
   export const url = 'http://localhost:4444/house';
@@ -46,13 +47,19 @@ export class HouseComponent implements OnInit {
 
   readonly PROVIDE = Provide;
 
-  constructor(private http: HttpClient, private api: ApiService) {}
+  constructor(
+    private http: HttpClient,
+    private api: ApiService,
+    private activateRoute: ActivatedRoute,
+    private route: Router
+  ) {}
 
   private async initialize(): Promise<void> {
     this.list$ = this.api.request<GetHouse.ResponseBody>(GetHouse);
   }
 
   ngOnInit(): void {
+    window['$this'] = this;
     this.initialize();
   }
 }

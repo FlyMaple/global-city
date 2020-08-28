@@ -59,6 +59,11 @@ export class EverythingComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
 
+  nzPage = {
+    index: 1,
+    size: 5,
+  };
+
   readonly CATEGORY_TEXT = CategoryText;
 
   constructor(
@@ -66,7 +71,9 @@ export class EverythingComponent implements OnInit, OnDestroy {
     private activeRoute: ActivatedRoute,
     private route: Router,
     private routeService: RouteService
-  ) {}
+  ) {
+    window['$this'] = this;
+  }
 
   get categoryPath() {
     return this.activeRoute.snapshot.url[0].path;
@@ -89,10 +96,17 @@ export class EverythingComponent implements OnInit, OnDestroy {
     }
 
     if (this.inputTerm) {
-      return result.filter((item) => item.title.includes(this.inputTerm));
+      result = result.filter((item) => item.title.includes(this.inputTerm));
     }
 
     return result;
+  }
+
+  get paginationList() {
+    return this.filterList.slice(
+      (this.nzPage.index - 1) * this.nzPage.size,
+      this.nzPage.index * this.nzPage.size
+    );
   }
 
   private async initialize(): Promise<void> {

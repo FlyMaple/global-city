@@ -2,6 +2,10 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SidnavMenu, SIDNAV_MENU_CONFIG, SidnavMenus } from '../sidnav';
 import { Router, RouteConfigLoadEnd } from '@angular/router';
+import { flattenDeep } from 'lodash';
+
+// TODO:
+// route service or menu service
 
 enum CategoryText {
   other = '其他',
@@ -19,12 +23,50 @@ enum CategoryText {
   providedIn: 'root',
 })
 export class RouteService {
+  menuFullPath = [];
+
   constructor(
     @Inject(SIDNAV_MENU_CONFIG) private menuConfig: SidnavMenus,
     private http: HttpClient,
     private route: Router
   ) {
-    console.log(menuConfig);
+    window['$routeService'] = this;
+  }
+
+  private updateMenuFullPath() {
+    this.menuFullPath = flattenDeep(
+      this.menuConfig.map((menu) => {
+        if (menu.children == null) {
+          return {
+            path: `/${menu.path}`,
+            title: menu.title,
+            url: [
+              {
+                path: menu.path,
+                title: menu.title,
+              },
+            ],
+          };
+        }
+
+        return menu.children.map((child) => {
+          return {
+            path: `/${menu.path}/${child.path}`,
+            title: child.title,
+            url: [
+              {
+                path: menu.path,
+                title: menu.title,
+              },
+              {
+                path: child.path,
+                title: child.title,
+              },
+            ],
+          };
+        });
+      })
+    );
   }
 
   private getSidnavMenu(path: string): SidnavMenu {
@@ -60,6 +102,8 @@ export class RouteService {
     everythingMenu.children = everythingChildren.length
       ? everythingChildren
       : null;
+
+    this.updateMenuFullPath();
 
     return everythingMenu;
   }

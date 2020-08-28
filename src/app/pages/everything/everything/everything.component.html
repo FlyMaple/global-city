@@ -31,7 +31,7 @@
 
   <nz-list nzItemLayout="horizontal" [nzLoading]="loading">
     <nz-list-item
-      *ngFor="let item of filterList"
+      *ngFor="let item of paginationList"
       (click)="item.show = !item.show"
     >
       <div class="meta">
@@ -66,4 +66,12 @@
     </nz-list-item>
     <nz-list-empty *ngIf="filterList.length === 0"></nz-list-empty>
   </nz-list>
+
+  <nz-pagination
+    [(nzPageIndex)]="nzPage.index"
+    [(nzPageSize)]="nzPage.size"
+    [nzShowSizeChanger]="true"
+    [nzPageSizeOptions]="[5, 10, 30, 50]"
+    [nzTotal]="filterList.length"
+  ></nz-pagination>
 </div>
