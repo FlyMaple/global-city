@@ -26,7 +26,13 @@ export class AppComponent implements OnInit {
     @Inject(SIDNAV_MENU_CONFIG) public menuConfig,
     private routeService: RouteService,
     private route: Router
-  ) {}
+  ) {
+    window['$app'] = this;
+
+    setTimeout(() => {
+      this.isCollapsed = true;
+    }, 500);
+  }
 
   private parseBreadcrumbs() {
     const url = this.route.url;

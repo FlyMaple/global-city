@@ -1,5 +1,40 @@
 .page-around {
   #mapid {
     height: 300px;
+
+  ::ng-deep .marker {
+    display: inline-flex;
+    flex-flow: column wrap;
+
+    line-height: 24px;
+
+    .title {
+    }
+
+    .phone {
+    }
+
+    .address {
+    }
+
+    .description {
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+
+      .copy {
+      }
+
+      .sources {
+        display: flex;
+        list-style: none;
+
+        li {
+        }
+      }
+    }
+  }
   }
 }
